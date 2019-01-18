@@ -1,18 +1,12 @@
 pipeline {
   agent {
     docker {
-      image 'nikolaifranke/jenkins:latest'
+      image 'node:11'
       args '-p 3000:3000'
     }
 
   }
-  stages {
-    stage('Script') {
-      steps {
-        sh 'python script.py'
-      }
-    }
-    
+  stages {    
     stage('Build') {
       steps {
         sh 'npm install'
