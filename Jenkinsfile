@@ -7,21 +7,20 @@ pipeline {
 
   }
   stages {  
-    stage('abc') {
-      steps {
-        sh 'python3 script.py'
-      }
-     
-    }
-    stage('Build') {
+     stage('Build') {
       steps {
         sh 'npm install'
       }
     }
     stage('Start') {
       steps {
-        sh 'npm start'
+        sh 'npm start &'
+        sh 'sleep 30'
       }
+      stage('Test') {
+        steps {
+          sh 'python3 script.py'
+        }
     }
   }
 }
