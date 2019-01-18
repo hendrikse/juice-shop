@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'kakehashi/node-pip'
+      image 'nikolaifranke/jenkins'
       args '-p 3000:3000'
     }
 
@@ -9,9 +9,6 @@ pipeline {
   stages {
     stage('Selenium test') {
       steps {
-        sh 'pip3 install selenium --user'
-        sh 'export PATH="$PATH:~/.local/bin"'
-        sh 'source ~/.profile'
         sh 'python script.py'
       }
     }
