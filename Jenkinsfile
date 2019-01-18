@@ -9,6 +9,7 @@ pipeline {
   stages {
     stage('Selenium test') {
       steps {
+        sh 'pip install selenium'
         sh 'python script.py'
       }
     }
