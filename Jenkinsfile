@@ -25,7 +25,9 @@ pipeline {
     }
     stage('ZAP active scan') {
       steps {
-         sh 'curl "http://localhost:8090/JSON/ascan/action/scan/?zapapiformat=JSON&formMethod=GET&url=localhost%3A3000&recurse=&inScopeOnly=&scanPolicyName=&method=&postData=&contextId="'
+        sh 'curl "http://172.17.0.4:8090/JSON/core/action/accessUrl/?zapapiformat=JSON&formMethod=GET&url=http%3A%2F%2F172.17.0.5%3A3000"'
+        sh 'curl "http://172.17.0.4:8090/JSON/ascan/action/scan/?zapapiformat=JSON&formMethod=GET&url=http%3A%2F%2F172.17.0.5%3A3000"'
+        sh 'sleep 10'
       }
     }
   }
