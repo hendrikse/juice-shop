@@ -1,3 +1,4 @@
+#!/usr env python3
 from selenium import webdriver
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -14,9 +15,9 @@ proxy = Proxy({
 
 driver = webdriver.Remote(
     proxy=proxy,
-    command_executor='http://172.17.0.3:4444/wd/hub',
+    command_executor='172.17.0.3:4444/wd/hub',
     desired_capabilities=DesiredCapabilities.FIREFOX)
 
-driver.get("https://bbc.com")
+driver.get("172.17.0.5:3000")
 print(driver.title)
 driver.close();
