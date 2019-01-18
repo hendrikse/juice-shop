@@ -11,6 +11,7 @@ pipeline {
       steps {
         sh 'pip3 install selenium --user'
         sh 'export PATH="$PATH:~/.local/bin"'
+        sh 'source ~/.profile'
         sh 'python script.py'
       }
     }
