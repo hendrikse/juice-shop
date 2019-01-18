@@ -14,7 +14,7 @@ proxy = Proxy({
 
 driver = webdriver.Remote(
     proxy=proxy,
-    command_executor='http://127.0.0.1:4444/wd/hub',
+    command_executor='http://172.17.0.3:4444/wd/hub',
     desired_capabilities=DesiredCapabilities.FIREFOX)
 
 driver.get("https://bbc.com")
