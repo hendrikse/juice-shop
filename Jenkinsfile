@@ -10,7 +10,7 @@ pipeline {
     stage('Selenium test') {
       steps {
         sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-        sh 'python get-pip.py'
+        sh 'sudo python get-pip.py'
         sh 'pip install selenium'
         sh 'python script.py'
       }
