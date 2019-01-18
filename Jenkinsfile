@@ -8,7 +8,10 @@ pipeline {
   }
   stages {  
     stage('abc') {
-      sh 'python script.py'
+      steps {
+        sh 'python script.py'
+      }
+     
     }
     stage('Build') {
       steps {
