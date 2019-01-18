@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'nikolaifranke/jenkins:test'
+      image 'node:11'
       args '-p 3000:3000'
     }
 
