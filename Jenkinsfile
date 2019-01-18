@@ -12,7 +12,6 @@ pipeline {
         sh 'python script.py'
       }
     }
-  stages {
     stage('Build') {
       steps {
         sh 'npm install'
