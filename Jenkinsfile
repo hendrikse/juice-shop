@@ -17,10 +17,11 @@ pipeline {
         sh 'npm start &'
         sh 'sleep 30'
       }
-      stage('Test') {
-        steps {
-          sh 'python3 script.py'
-        }
+    }
+    stage('Test') {
+      steps {
+        sh 'python3 script.py'
+      }
     }
   }
 }
