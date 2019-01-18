@@ -18,6 +18,6 @@ driver = webdriver.Remote(
     command_executor='172.17.0.3:4444/wd/hub',
     desired_capabilities=DesiredCapabilities.FIREFOX)
 
-driver.get("172.17.0.5:3000")
+driver.get("http://172.17.0.5:3000")
 print(driver.title)
 driver.close();
