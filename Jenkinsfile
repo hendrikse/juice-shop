@@ -15,7 +15,7 @@ pipeline {
     stage('Start') {
       steps {
         sh 'npm start &'
-        sh 'sleep 10'
+        sh 'sleep 30'
       }
     }
     stage('Selenium') {
