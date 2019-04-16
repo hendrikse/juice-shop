@@ -4,6 +4,7 @@ pipeline {
      stage('Build') {
       steps {
         echo 'Building...'
+        sh 'export PATH=/usr/local/bin:$PATH'
         sh 'npm install'
       }
     }
