@@ -1,8 +1,7 @@
 pipeline {
   agent {
     docker {
-        image 'jenkinsagent:latest'
-        args '-p 3000:3000'
+        image 'node:7-alpine'
     }
   }
   stages {
