@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+        image 'jenkinsagent:latest'
+        args '-p 3000:3000'
+    }
+  }
   stages {
      stage('Build') {
       steps {
