@@ -1,13 +1,6 @@
 pipeline {
-  agent {
-    docker {
-      image 'jenkinsagent:latest'
-      args '-p 3000:3000'
-    }
-
-  }
-  stages {  
-     stage('Build') {
+  node{
+    stage('Build') {
       steps {
         sh 'npm install'
       }
@@ -19,9 +12,9 @@ pipeline {
       }
     }
     stage('Selenium') {
-      steps {
-        sh 'python3 selenium_script.py'
-      }
+        steps {
+          sh 'python3 selenium_script.py'
+        }
     }
     stage('ZAP active scan') {
       steps {
