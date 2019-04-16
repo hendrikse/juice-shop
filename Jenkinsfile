@@ -1,28 +1,23 @@
 pipeline {
-  agent any
-  stages {
-     stage('Build') {
-      steps {
-        echo 'Building...'
-        sh 'export PATH=/usr/local/bin:$PATH'
-        sh 'npm install'
-      }
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
     }
-    stage('Start') {
-      steps {
-        sh 'npm start &'
-        sh 'sleep 30'
-      }
+    environment {
+        CI = 'true'
     }
-    stage('Selenium') {
-      steps {
-        sh 'python3 selenium_script.py'
-      }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './jenkins/scripts/test.sh'
+            }
+        }
     }
-    stage('ZAP active scan') {
-      steps {
-        sh 'python3 zap_script.py'
-      }
-    }
-  }
 }
