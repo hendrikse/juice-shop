@@ -1,7 +1,9 @@
 pipeline {
-  stages{
-    stage('Build') {
+  agent any
+  stages {
+     stage('Build') {
       steps {
+        echo 'Building...'
         sh 'npm install'
       }
     }
@@ -12,9 +14,9 @@ pipeline {
       }
     }
     stage('Selenium') {
-        steps {
-          sh 'python3 selenium_script.py'
-        }
+      steps {
+        sh 'python3 selenium_script.py'
+      }
     }
     stage('ZAP active scan') {
       steps {
